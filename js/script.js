@@ -92,8 +92,8 @@
         for (let article of articles) {
             console.log(article);
             /* find tags wrapper */
-            const titleWrapper = article.querySelector(optArticleTagsSelector);
-            titleList.innerHTML = '';
+            const tagsWrapper = article.querySelector(optArticleTagsSelector);
+            ///titleList.innerHTML = '';
 
             /* make html variable with empty string */
             let html = '';
@@ -110,11 +110,13 @@
 
             for (let tag of articleTagsArray) {
                 /* generate HTML of the link */
-                const taglinkHTML = '<li><a href="#tags-' + tag + '">' + tag + '</a></li>';
+                const taglinkHTML = '<li><a href="#tags-' + tag + '">' + tag + '</a></li>' + ' ';
 
                 html = html + taglinkHTML;
 
                 /* add generated code to HTML variable */
+
+                tagsWrapper.innerHTML = html;
 
             }
 
@@ -125,6 +127,7 @@
             /* END LOOP: for every article: */
         }
 
-        generateTags();
+
     }
+    generateTags();
 }
