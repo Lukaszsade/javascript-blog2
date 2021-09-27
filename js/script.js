@@ -150,7 +150,7 @@
 
             for (let tag of articleTagsArray) {
                 /* generate HTML of the link */
-                const taglinkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>' + ' ';
+                const taglinkHTML = '<a href="#tag-' + tag + '">' + tag + '</a> ';
 
                 /* add generated code to HTML variable */
                 html = html + taglinkHTML;
@@ -186,7 +186,7 @@
         for (let tag in allTags) {
 
             /* [NEW] generate code of a link and add it to allTagsHTML */
-            const tagLinkHTML = '<a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>';
+            const tagLinkHTML = '<a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a> ';
 
             allTagsHTML += tagLinkHTML;
         }
@@ -243,7 +243,7 @@
 
     function addClickListenersToTags() {
         /* find all links to tags */
-        const tagLinks = document.querySelectorAll('.post-tags a');
+        const tagLinks = document.querySelectorAll('.post-tags a, .list.tags a');
 
         /* START LOOP: for each link */
         for (let tagLink of tagLinks) {
@@ -298,7 +298,7 @@
         let allAuthorsHTML = '';
 
         for (let articleAuthor in allAuthors) {
-            const authorLinkHTML = '<a href="#author-' + articleAuthor + '"><span class="author-name">' + articleAuthor + ' (' + allAuthors[articleAuthor] + ')</span></a>';
+            const authorLinkHTML = '<a href="#author-' + articleAuthor + '"><span class="author-name">' + articleAuthor + ' (' + allAuthors[articleAuthor] + ')</span></a> ';
             allAuthorsHTML += authorLinkHTML;
 
         }
@@ -329,7 +329,7 @@
         const author = href.replace('#author-', '');
 
 
-        const activeAuthorLinks = document.querySelectorAll('a.active[href^="#article-"]');
+        const activeAuthorLinks = document.querySelectorAll('a.active[href^="#author-"]');
 
 
         if (activeAuthorLinks) {
