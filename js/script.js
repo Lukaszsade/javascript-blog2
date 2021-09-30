@@ -1,5 +1,14 @@
 'use strict';
+
 {
+
+    const templates = {
+        articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+        articleTagLinks: Handlebars.compile(document.querySelector('#template-article-tag-link').innerHTML),
+        articleAuthorLink: Handlebars.compile(document.querySelector('#template-article-author-link').innerHTML)
+
+    }
+
     const optArticleSelector = '.post';
     const optTitleSelector = '.post-title';
     const optTitleListSelector = '.titles';
@@ -68,8 +77,9 @@
             /* get the title from the title element */
 
             /* create HTML of the link */
-            const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-
+            //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+            const linkHTMLData = { id: articleId, title: articleTitle };
+            const linkHTML = templates.articleLink(linkHTMLData);
 
             /* insert link into titleList */
             titleList.insertAdjacentHTML('beforeend', linkHTML);
@@ -150,7 +160,9 @@
 
             for (let tag of articleTagsArray) {
                 /* generate HTML of the link */
-                const taglinkHTML = '<a href="#tag-' + tag + '">' + tag + '</a> ';
+                ///const taglinkHTML = '<a href="#tag-' + tag + '">' + tag + '</a> ';
+                const linkHTMLData = { tag };
+                const taglinkHTML = templates.articleTagLinks(linkHTMLData);
 
                 /* add generated code to HTML variable */
                 html = html + taglinkHTML;
@@ -279,8 +291,9 @@
 
 
             /* insert HTML of all the links into the authors wrapper */
-            const linkHTML = '<a href="#author-' + articleAuthor + '"><span>' + articleAuthor + '</span></a>';
-
+            ///const linkHTML = '<a href="#author-' + articleAuthor + '"><span>' + articleAuthor + '</span></a>';
+            const linkHTMLData = { articleAuthor };
+            const linkHTML = templates.articleAuthorLink(linkHTMLData);
             html = html + linkHTML;
 
             if (!allAuthors[articleAuthor]) {
