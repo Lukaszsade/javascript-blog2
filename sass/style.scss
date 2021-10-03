@@ -119,3 +119,41 @@ body {
   }
 }
 
+/* TAg Cloud */
+
+.sidebar .tags {
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  
+}
+
+.sidebar .tags a {
+  text-decoration: none;
+  margin: 10px;
+}
+
+.tag-size-1 {
+  font-size: 18px;
+  color: rgb(43, 54, 70);
+}
+
+.tag-size-2 {
+font-size: 22px;
+color: blue;
+}
+
+.tag-size-3 {
+  font-size: 32px;
+  color: black;
+}
+
+.tag-size-4 {
+  font-size: 41px;
+  color: aquamarine;
+}
+
+.tag-size-5 {
+  font-size: 63px;
+  color: rgb(240, 166, 69);
+}
